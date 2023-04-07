@@ -37,7 +37,7 @@ local ScreenGui = Instance.new('ScreenGui')
 -- ProtectGui(ScreenGui)
 
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
-ScreenGui.Name = 'Linoria Lib'
+ScreenGui.Name = 'Carti hub'
 
 if gethui then
     ScreenGui.Parent = gethui()
