@@ -16,11 +16,11 @@ ProtectGui(ScreenGui);
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global;
 ScreenGui.Parent = CoreGui;
 
-local Toggles = {};
-local Options = {};
+local TogglesLucky = {};
+local OptionsLucky = {};
 
-getgenv().Toggles = Toggles;
-getgenv().Options = Options;
+getgenv().TogglesLucky = TogglesLucky;
+getgenv().OptionsLucky = OptionsLucky;
 
 local Library = {
     Registry = {};
@@ -957,7 +957,7 @@ do
         ColorPicker:Display();
         ColorPicker.DisplayFrame = DisplayFrame
 
-        Options[Idx] = ColorPicker;
+        OptionsLucky[Idx] = ColorPicker;
 
         return self;
     end;
@@ -1283,7 +1283,7 @@ do
 
         KeyPicker:Update();
 
-        Options[Idx] = KeyPicker;
+        OptionsLucky[Idx] = KeyPicker;
 
         return self;
     end;
@@ -1766,7 +1766,7 @@ do
         Groupbox:AddBlank(5);
         Groupbox:Resize();
 
-        Options[Idx] = Textbox;
+        OptionsLucky[Idx] = Textbox;
 
         return Textbox;
     end;
@@ -1901,7 +1901,7 @@ do
         Toggle.Container = Container;
         setmetatable(Toggle, BaseAddons);
 
-        Toggles[Idx] = Toggle;
+        TogglesLucky[Idx] = Toggle;
 
         Library:UpdateDependencyBoxes();
 
@@ -2098,7 +2098,7 @@ do
         Groupbox:AddBlank(Info.BlankSize or 6);
         Groupbox:Resize();
 
-        Options[Idx] = Slider;
+        OptionsLucky[Idx] = Slider;
 
         return Slider;
     end;
@@ -2526,7 +2526,7 @@ do
         Groupbox:AddBlank(Info.BlankSize or 5);
         Groupbox:Resize();
 
-        Options[Idx] = Dropdown;
+        OptionsLucky[Idx] = Dropdown;
 
         return Dropdown;
     end;
@@ -3483,7 +3483,7 @@ end;
 local function OnPlayerChange()
     local PlayerList = GetPlayersString();
 
-    for _, Value in next, Options do
+    for _, Value in next, OptionsLucky do
         if Value.Type == 'Dropdown' and Value.SpecialType == 'Player' then
             Value.Values = PlayerList;
             Value:SetValues();
